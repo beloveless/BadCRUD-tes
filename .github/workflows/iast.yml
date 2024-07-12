@@ -27,10 +27,6 @@ jobs:
           echo "URL=$URL" >> $GITHUB_ENV
 
       - name: Context Setup
-        # env:
-        #     # Set a previously defined secret as an environment variable for this step:
-        #     AUTURL: ${{secrets.B64PASSWORD}}
-        # Replace the "AUTURL" string in the context file with the real base64-encoded password:
         run: |
           sed -ie "s/AUTURL/${{ env.URL }}/" badcrud.context
         
@@ -39,9 +35,6 @@ jobs:
         with:
           target: http://${{ env.URL }}
           network_name: isolated
-          # Additional command line options
-          # -j   runs the AJAX spider
-          # -U   specifies which user to select from the context file
           cmd_options: -U "admin" -n badcrud.context
 
       - name: stop docker
@@ -54,7 +47,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0  
+          
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
