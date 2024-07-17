@@ -30,7 +30,6 @@ jobs:
         run: |
           until nc -zv ${{ env.URL }} 3306; do echo "Waiting for MySQL to be ready..."; sleep 5; done
 
-
       - name: Check AUT URL
         run: curl ${{ env.URL }}
 
