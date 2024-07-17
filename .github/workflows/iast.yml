@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   dast:
-    name: DAST
+    name: OWASP-ZAP
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
