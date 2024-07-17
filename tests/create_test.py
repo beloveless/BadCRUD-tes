@@ -81,7 +81,7 @@ class CreateContact_TestCase(unittest.TestCase):
 
         # Menyetujui konfirmasi penghapusan
         self.browser.switch_to.alert.accept()
-        time.sleep(3)
+        time.sleep(1)
 
         # Melakukan pencarian kembali dan memeriksa apakah kontak sudah dihapus
         search_query = self.name_query
