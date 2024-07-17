@@ -70,6 +70,7 @@ class CreateContact_TestCase(unittest.TestCase):
         searched_contact_name = self.name_query
         searched_contact_exists = self.browser.find_elements(By.XPATH, f"//td[contains(text(), '{searched_contact_name}')]")
         self.assertTrue(searched_contact_exists)
+        time.sleep(5)
 
     def delete_contact(self):
         # Pengujian menghapus kontak
